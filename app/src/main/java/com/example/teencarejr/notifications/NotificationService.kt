@@ -8,14 +8,15 @@ import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
 import android.util.Log
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.example.teencarejr.location.LocationService
 import java.io.ByteArrayOutputStream
-
 
 class NotificationService : NotificationListenerService() {
     var context: Context? = null
     override fun onCreate() {
         super.onCreate()
         context = applicationContext
+        context?.startService(Intent(context,LocationService::class.java))
         //Log.d("Notificaton","$activeNotifications")
     }
 

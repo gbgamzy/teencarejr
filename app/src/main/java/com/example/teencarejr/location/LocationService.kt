@@ -17,7 +17,6 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
 class LocationService: Service() {
-
     private val serviceScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
     private lateinit var locationClient: LocationClient
 
@@ -74,10 +73,10 @@ class LocationService: Service() {
         stopSelf()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        serviceScope.cancel()
-    }
+//    override fun onDestroy() {
+//        super.onDestroy()
+//        serviceScope.cancel()
+//    }
 
     companion object {
         const val ACTION_START = "ACTION_START"
